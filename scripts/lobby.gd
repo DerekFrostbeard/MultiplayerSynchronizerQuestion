@@ -12,7 +12,7 @@ func _on_host_pressed():
 	multiplayer.multiplayer_peer = peer
 	multiplayer.peer_connected.connect(_peer_connected)
 	multiplayer.peer_disconnected.connect(_peer_disconnected)
-	$MainMenu.hide()
+	$LobbyMenu.hide()
 
 func _peer_connected(id: int):
 	print_helper("client %s connected" % id)
@@ -27,7 +27,7 @@ func _on_join_pressed():
 	multiplayer.connected_to_server.connect(_connected_to_server)
 	multiplayer.connection_failed.connect(_connection_failed)
 	multiplayer.server_disconnected.connect(_server_disconnected)
-	$MainMenu.hide()
+	$LobbyMenu.hide()
 
 func _connected_to_server():
 	print_helper("connected to server")
@@ -43,7 +43,7 @@ func _server_disconnected():
 func spawn_player():
 	var player = player_scene.instantiate()
 	player.name = str(multiplayer.get_remote_sender_id())
-	$SpawnRoot.add_child(player)
+	$PlayerSpawnRoot.add_child(player)
 
 func print_helper(message):
 	print(get_node("/root/Lobby").multiplayer.get_unique_id(), ": ", message)

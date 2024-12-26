@@ -11,7 +11,7 @@ func _ready():
 		$PlayerMenu.show()
 
 func _on_spawn_pressed():
-	$PlayerSpawnRoot.add_child(character_scene.instantiate(), true)
+	$CharacterSpawnRoot.add_child(character_scene.instantiate(), true)
 	$PlayerMenu.hide()
 
 func print_helper(message):

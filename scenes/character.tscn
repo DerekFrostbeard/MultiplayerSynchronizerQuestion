@@ -34,7 +34,7 @@ offset_right = 37.0
 offset_bottom = 103.0
 text = "Kill"
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="CharacterSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_ueb3v")
 
 [connection signal="pressed" from="CharacterMenu/PrintValue" to="." method="_on_print_value_pressed"]

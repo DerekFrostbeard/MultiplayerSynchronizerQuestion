@@ -7,27 +7,27 @@
 script = ExtResource("1_wirfx")
 player_scene = ExtResource("2_i74kj")
 
-[node name="MainMenu" type="CanvasLayer" parent="."]
+[node name="LobbyMenu" type="CanvasLayer" parent="."]
 
-[node name="Host" type="Button" parent="MainMenu"]
+[node name="Host" type="Button" parent="LobbyMenu"]
 offset_left = 6.0
 offset_top = 5.0
 offset_right = 50.0
 offset_bottom = 36.0
 text = "Host"
 
-[node name="Join" type="Button" parent="MainMenu"]
+[node name="Join" type="Button" parent="LobbyMenu"]
 offset_left = 10.0
 offset_top = 40.0
 offset_right = 48.0
 offset_bottom = 71.0
 text = "Join"
 
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://scenes/player.tscn")
-spawn_path = NodePath("../SpawnRoot")
+spawn_path = NodePath("../PlayerSpawnRoot")
 
-[node name="SpawnRoot" type="Node" parent="."]
+[node name="PlayerSpawnRoot" type="Node" parent="."]
 
-[connection signal="pressed" from="MainMenu/Host" to="." method="_on_host_pressed"]
-[connection signal="pressed" from="MainMenu/Join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="LobbyMenu/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="LobbyMenu/Join" to="." method="_on_join_pressed"]

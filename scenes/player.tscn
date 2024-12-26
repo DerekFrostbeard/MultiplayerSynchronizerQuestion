@@ -17,10 +17,10 @@ offset_right = 70.0
 offset_bottom = 37.0
 text = "Spawn"
 
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+[node name="CharacterSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://scenes/character.tscn")
-spawn_path = NodePath("../PlayerSpawnRoot")
+spawn_path = NodePath("../CharacterSpawnRoot")
 
-[node name="PlayerSpawnRoot" type="Node" parent="."]
+[node name="CharacterSpawnRoot" type="Node" parent="."]
 
 [connection signal="pressed" from="PlayerMenu/Spawn" to="." method="_on_spawn_pressed"]
