@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://j2uojiob07hr"]
+
+[ext_resource type="Script" path="res://scripts/character.gd" id="1_gyk5u"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ueb3v"]
+properties/0/path = NodePath(".:value")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Character" type="Node"]
+script = ExtResource("1_gyk5u")
+
+[node name="CharacterMenu" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="PrintValue" type="Button" parent="CharacterMenu"]
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 49.0
+offset_bottom = 35.0
+text = "Print Value"
+
+[node name="IncrementValue" type="Button" parent="CharacterMenu"]
+offset_left = 4.0
+offset_top = 38.0
+offset_right = 93.0
+offset_bottom = 69.0
+text = "Increment Value"
+
+[node name="Kill" type="Button" parent="CharacterMenu"]
+offset_left = 5.0
+offset_top = 72.0
+offset_right = 37.0
+offset_bottom = 103.0
+text = "Kill"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_ueb3v")
+
+[connection signal="pressed" from="CharacterMenu/PrintValue" to="." method="_on_print_value_pressed"]
+[connection signal="pressed" from="CharacterMenu/IncrementValue" to="." method="_on_increment_pressed"]
+[connection signal="pressed" from="CharacterMenu/Kill" to="." method="_on_kill_pressed"]
